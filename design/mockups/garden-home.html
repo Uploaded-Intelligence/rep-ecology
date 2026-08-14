@@ -1,0 +1,149 @@
+<!-- @dsCard group="Garden World" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Garden home</title>
+<style>
+  :root{
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:#0C1512;min-height:100vh;display:flex;flex-direction:column;align-items:center;font-family:var(--sans)}
+  .stage{position:relative;width:min(1240px,100vw);aspect-ratio:1240/780}
+  svg{width:100%;height:100%;display:block}
+  .whisper{position:absolute;right:22px;bottom:16px;font:10px var(--mono);color:#5E7A6C;letter-spacing:.1em}
+  .cap{max-width:900px;padding:10px 20px 26px;font:12px/1.6 var(--sans);color:#6E8478;text-align:center}
+  .cap b{color:#A9C4B4;font-weight:600}
+  @media (prefers-reduced-motion: no-preference){
+    .breath{animation:breath 5s ease-in-out infinite}
+    .pulse{animation:pulse 2.6s ease-in-out infinite}
+    .drift{animation:drift 9s ease-in-out infinite alternate}
+    @keyframes breath{0%,100%{opacity:.85}50%{opacity:1}}
+    @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+    @keyframes drift{from{transform:translate(0,0)}to{transform:translate(9px,-6px)}}
+  }
+</style>
+
+<div class="stage">
+<svg viewBox="0 0 1240 780" role="img" aria-label="The garden home: your registry as a living world, a visitor lantern at the gate with three glowing match-threads">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#16241E"/><stop offset="55%" stop-color="#0F1A15"/><stop offset="100%" stop-color="#0B130F"/>
+    </radialGradient>
+    <radialGradient id="glow-v" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4FC79B" stop-opacity=".9"/><stop offset="100%" stop-color="#4FC79B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-a" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E9B36B" stop-opacity=".95"/><stop offset="100%" stop-color="#E9B36B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core-veil" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A2620"/><stop offset="78%" stop-color="#15201A"/><stop offset="100%" stop-color="#121B16" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="soft2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.2"/></filter>
+  </defs>
+
+  <rect width="1240" height="780" fill="url(#sky)"/>
+
+  <!-- morning mist bands = fidelity weather (crisp today: faint) -->
+  <ellipse cx="620" cy="700" rx="700" ry="90" fill="#1B2A22" opacity=".5"/>
+  <ellipse cx="300" cy="120" rx="420" ry="60" fill="#14211B" opacity=".55"/>
+
+  <!-- ═══ the gate / horizon (top right): where the world arrives ═══ -->
+  <path d="M 1030 60 Q 1120 140 1180 260" fill="none" stroke="#24352C" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"/>
+  <text x="1122" y="86" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5E7A6C" letter-spacing="2">THE GATE</text>
+
+  <!-- visitor lantern: Nico, arrived today -->
+  <g class="drift">
+    <circle cx="1064" cy="178" r="46" fill="url(#glow-a)" filter="url(#soft)" opacity=".65"/>
+    <circle cx="1064" cy="178" r="25" fill="#2B2418" stroke="#E9B36B" stroke-width="1.6"/>
+    <text x="1064" y="184" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="15" fill="#F2DCB4">NH</text>
+    <text x="1064" y="228" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="13" fill="#D9C79E" font-style="italic">Nico is here</text>
+    <text x="1064" y="243" text-anchor="middle" font-size="9" fill="#8B9C8F" font-family="ui-monospace,Menlo,monospace">3 threads offered</text>
+  </g>
+
+  <!-- ═══ three match-threads from lantern to plants: glowing = awaiting your taste ═══ -->
+  <path class="pulse" d="M 1044 196 C 940 300, 840 300, 742 320" fill="none" stroke="#4FC79B" stroke-width="2.4" opacity=".8" filter="url(#soft2)"/>
+  <path class="pulse" d="M 1050 200 C 980 360, 900 430, 812 470" fill="none" stroke="#4FC79B" stroke-width="2" opacity=".7" filter="url(#soft2)" style="animation-delay:.6s"/>
+  <path class="pulse" d="M 1040 198 C 900 260, 760 240, 640 240" fill="none" stroke="#4FC79B" stroke-width="2" opacity=".7" filter="url(#soft2)" style="animation-delay:1.2s"/>
+
+  <!-- ═══ grove: thinking together (center-right) ═══ -->
+  <text x="700" y="196" font-family="Iowan Old Style,Palatino,serif" font-size="14" fill="#7FA290" font-style="italic">thinking together</text>
+  <!-- agency-scaffolds: BLOOMING + matched (fruit glow) -->
+  <g>
+    <circle cx="742" cy="330" r="52" fill="url(#glow-v)" filter="url(#soft)" opacity=".5" class="breath"/>
+    <ellipse cx="742" cy="352" rx="30" ry="14" fill="#1E3328"/>
+    <path d="M 742 352 C 736 316, 726 300, 712 288 M 742 352 C 744 312, 752 296, 768 286 M 742 352 C 738 322, 748 306, 742 292" stroke="#3E7A5F" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="712" cy="286" r="7" fill="#4FC79B"/><circle cx="768" cy="284" r="8" fill="#4FC79B"/><circle cx="742" cy="289" r="6" fill="#7ADAB4"/>
+    <text x="742" y="382" text-anchor="middle" font-size="11" fill="#A9C4B4">agency scaffolds</text>
+  </g>
+  <!-- strategy-doc: growing + matched -->
+  <g>
+    <circle cx="812" cy="478" r="40" fill="url(#glow-v)" filter="url(#soft)" opacity=".45" class="breath" style="animation-delay:1s"/>
+    <ellipse cx="812" cy="496" rx="24" ry="11" fill="#1E3328"/>
+    <path d="M 812 496 C 808 466, 800 452, 792 444 M 812 496 C 816 462, 824 450, 832 444" stroke="#3E7A5F" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <circle cx="792" cy="443" r="6" fill="#4FC79B"/><circle cx="832" cy="443" r="6" fill="#4FC79B"/>
+    <text x="812" y="522" text-anchor="middle" font-size="11" fill="#A9C4B4">strategy-doc trade</text>
+  </g>
+
+  <!-- ═══ grove: making · tools (center-left) ═══ -->
+  <text x="520" y="180" font-family="Iowan Old Style,Palatino,serif" font-size="14" fill="#7FA290" font-style="italic">making · tools</text>
+  <!-- tool-trade: matched -->
+  <g>
+    <circle cx="640" cy="252" r="42" fill="url(#glow-v)" filter="url(#soft)" opacity=".45" class="breath" style="animation-delay:.4s"/>
+    <ellipse cx="640" cy="272" rx="25" ry="11" fill="#1E3328"/>
+    <path d="M 640 272 C 634 240, 626 228, 616 220 M 640 272 C 644 238, 654 226, 662 220" stroke="#3E7A5F" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <circle cx="616" cy="219" r="6" fill="#4FC79B"/><circle cx="662" cy="219" r="7" fill="#4FC79B"/>
+    <text x="640" y="298" text-anchor="middle" font-size="11" fill="#A9C4B4">tool trade</text>
+  </g>
+  <!-- rep-ecology-interop: tall young plant, unmatched (no glow, still) -->
+  <g>
+    <ellipse cx="500" cy="300" rx="22" ry="10" fill="#1B2D24"/>
+    <path d="M 500 300 C 496 262, 492 246, 496 228" stroke="#35604C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M 497 258 C 486 252, 480 244, 478 234 M 498 244 C 508 240, 514 232, 515 224" stroke="#35604C" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="500" y="324" text-anchor="middle" font-size="11" fill="#7E958A">rep-ecology interop</text>
+  </g>
+
+  <!-- ═══ grove: place · scene (lower left) ═══ -->
+  <text x="300" y="470" font-family="Iowan Old Style,Palatino,serif" font-size="14" fill="#7FA290" font-style="italic">place · scene</text>
+  <g>
+    <ellipse cx="342" cy="560" rx="24" ry="11" fill="#1B2D24"/>
+    <path d="M 342 560 C 338 528, 330 514, 322 506 M 342 560 C 346 526, 354 514, 362 508" stroke="#35604C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <text x="342" y="586" text-anchor="middle" font-size="11" fill="#7E958A">community mapping</text>
+  </g>
+  <!-- dormant plant: bare, no leaves -->
+  <g opacity=".55">
+    <ellipse cx="240" cy="610" rx="18" ry="8" fill="#182720"/>
+    <path d="M 240 610 C 238 588, 236 578, 238 568" stroke="#2C4A3B" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="240" y="632" text-anchor="middle" font-size="10" fill="#5E7A6C">london growing · resting</text>
+  </g>
+
+  <!-- ═══ the veiled core (hidden interests): only you see in ═══ -->
+  <g>
+    <circle cx="430" cy="430" r="78" fill="url(#core-veil)"/>
+    <circle cx="430" cy="430" r="64" fill="none" stroke="#3A2F1D" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <circle cx="412" cy="424" r="5" fill="#8A6D3A" class="pulse" style="animation-delay:.9s"/>
+    <circle cx="448" cy="438" r="5" fill="#8A6D3A" class="pulse" style="animation-delay:1.7s"/>
+    <text x="430" y="472" text-anchor="middle" font-size="10" fill="#8B7B57">the veiled bed · 2 seeds only you see</text>
+  </g>
+
+  <!-- ═══ the rep: a wisp, currently AT THE GATE (position = state) ═══ -->
+  <g class="drift" style="animation-duration:6s">
+    <circle cx="980" cy="250" r="30" fill="url(#glow-v)" filter="url(#soft)" opacity=".8"/>
+    <circle cx="980" cy="250" r="5" fill="#B8F0DA"/>
+    <circle cx="968" cy="258" r="2.5" fill="#7ADAB4"/><circle cx="991" cy="243" r="2" fill="#7ADAB4"/>
+    <text x="980" y="292" text-anchor="middle" font-size="10" fill="#7FA290" font-style="italic" font-family="Iowan Old Style,Palatino,serif">your rep, hosting the visit</text>
+  </g>
+
+  <!-- amber ripple at boundary: the declined fishing attempt (anomaly, ambient) -->
+  <g opacity=".7">
+    <circle cx="1150" cy="560" r="26" fill="none" stroke="#B98A45" stroke-width="1.3" class="pulse"/>
+    <circle cx="1150" cy="560" r="14" fill="none" stroke="#B98A45" stroke-width="1" opacity=".6"/>
+    <text x="1150" y="606" text-anchor="middle" font-size="9" fill="#9B7F4F" font-family="ui-monospace,Menlo,monospace">turned away · 17:41</text>
+  </g>
+</svg>
+<div class="whisper">⌘K · or speak to the wisp</div>
+</div>
+
+<p class="cap"><b>The garden is the cockpit.</b> Everything glowing wants your taste: three threads from Nico's lantern reach the plants they matched. Pluck a thread to pursue; let it dim to pass. The wisp is your rep; where it hovers is what it's doing. The veiled bed is visible only to you. Amber ripples are trouble turned away. Zoom is semantic: this view is pure state; detail words appear as you move closer.</p>

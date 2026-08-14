@@ -1,0 +1,125 @@
+<!-- @dsCard group="Garden World" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Ecological Nexus</title>
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{background:#05090C;min-height:100vh;display:flex;flex-direction:column;align-items:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .stage{position:relative;width:min(1240px,100vw);aspect-ratio:1240/780}
+  svg{width:100%;height:100%;display:block}
+  .cap{max-width:920px;padding:10px 20px 26px;font:12px/1.6 -apple-system,sans-serif;color:#5F7A74;text-align:center}
+  .cap b{color:#9FC9BC;font-weight:600}
+  @media (prefers-reduced-motion: no-preference){
+    .sig1{animation:sig 3.2s linear infinite}
+    .sig2{animation:sig 3.2s linear infinite;animation-delay:1.6s}
+    .pulse{animation:pu 3.4s ease-in-out infinite}
+    .drift{animation:dr 14s ease-in-out infinite alternate}
+    @keyframes sig{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+    @keyframes pu{0%,100%{opacity:.45}50%{opacity:1}}
+    @keyframes dr{from{transform:translate(0,0)}to{transform:translate(-14px,10px)}}
+  }
+</style>
+
+<div class="stage">
+<svg viewBox="0 0 1240 780" role="img" aria-label="The Ecological Nexus: biome-cells of different beings connected by living signal filaments in a deep field">
+  <defs>
+    <radialGradient id="void" cx="45%" cy="42%" r="95%">
+      <stop offset="0%" stop-color="#0A1418"/><stop offset="55%" stop-color="#060D10"/><stop offset="100%" stop-color="#04080A"/>
+    </radialGradient>
+    <radialGradient id="nebula" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#123A33" stop-opacity=".35"/><stop offset="100%" stop-opacity="0" stop-color="#123A33"/>
+    </radialGradient>
+    <radialGradient id="cell-you" cx="45%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#0F2A20"/><stop offset="80%" stop-color="#0B2018"/><stop offset="100%" stop-color="#0A1B15"/>
+    </radialGradient>
+    <radialGradient id="halo-v" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3FE0AC" stop-opacity=".5"/><stop offset="100%" stop-opacity="0" stop-color="#3FE0AC"/>
+    </radialGradient>
+    <radialGradient id="halo-a" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0B563" stop-opacity=".45"/><stop offset="100%" stop-opacity="0" stop-color="#F0B563"/>
+    </radialGradient>
+    <radialGradient id="halo-dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3E6A5E" stop-opacity=".3"/><stop offset="100%" stop-opacity="0" stop-color="#3E6A5E"/>
+    </radialGradient>
+    <filter id="b1" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="b2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+
+  <rect width="1240" height="780" fill="url(#void)"/>
+  <ellipse cx="900" cy="600" rx="480" ry="300" fill="url(#nebula)"/>
+  <ellipse cx="260" cy="160" rx="360" ry="240" fill="url(#nebula)" opacity=".7"/>
+
+  <!-- spore-field: the unmet ecology as drifting living potential -->
+  <g class="drift" opacity=".8">
+    <circle cx="180" cy="120" r="1.8" fill="#2E5A4C"/><circle cx="340" cy="80" r="1.3" fill="#2E5A4C"/>
+    <circle cx="760" cy="70" r="2" fill="#2E5A4C"/><circle cx="1060" cy="140" r="1.5" fill="#2E5A4C"/>
+    <circle cx="620" cy="120" r="1.2" fill="#35685A"/><circle cx="920" cy="90" r="1.7" fill="#35685A"/>
+    <circle cx="1160" cy="330" r="1.5" fill="#2E5A4C"/><circle cx="80 " cy="420" r="1.6" fill="#2E5A4C"/>
+  </g>
+  <text x="620" y="42" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#33564B" letter-spacing="4">SPORE FIELD · THE UNMET</text>
+
+  <!-- ══ YOUR BIOME-CELL, lower left of center: membrane, organelle-groves, veiled nucleus ══ -->
+  <circle cx="460" cy="560" r="190" fill="url(#halo-v)" filter="url(#b1)" class="pulse"/>
+  <g>
+    <ellipse cx="460" cy="560" rx="128" ry="118" fill="url(#cell-you)"/>
+    <ellipse cx="460" cy="560" rx="128" ry="118" fill="none" stroke="#2E5A4C" stroke-width="1.6"/>
+    <ellipse cx="460" cy="560" rx="140" ry="130" fill="none" stroke="#1E3D33" stroke-width=".8" stroke-dasharray="1 5"/>
+    <!-- organelle groves -->
+    <g filter="url(#b2)">
+      <circle cx="415" cy="512" r="17" fill="#164434"/><circle cx="415" cy="512" r="7" fill="#3FE0AC" class="pulse"/>
+      <circle cx="512" cy="524" r="14" fill="#164434"/><circle cx="512" cy="524" r="6" fill="#3FE0AC" class="pulse" style="animation-delay:.8s"/>
+      <circle cx="498" cy="608" r="13" fill="#164434"/><circle cx="498" cy="608" r="5" fill="#3FE0AC" class="pulse" style="animation-delay:1.5s"/>
+      <circle cx="402" cy="612" r="11" fill="#123A2E"/><circle cx="402" cy="612" r="4" fill="#2E8A6A"/>
+    </g>
+    <!-- veiled nucleus -->
+    <circle cx="458" cy="562" r="26" fill="#0D1A14"/>
+    <circle cx="458" cy="562" r="26" fill="none" stroke="#4A3A21" stroke-width="1.2" stroke-dasharray="2 5"/>
+    <!-- the wisp, home -->
+    <circle cx="448" cy="530" r="3" fill="#C9F5E4"/>
+  </g>
+  <text x="460" y="712" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="17" fill="#BFDCD1" font-style="italic">you</text>
+
+  <!-- ══ NICO'S BIOME-CELL, upper right: live filament between you ══ -->
+  <circle cx="920" cy="240" r="140" fill="url(#halo-a)" filter="url(#b1)" class="pulse" style="animation-delay:1.2s"/>
+  <ellipse cx="920" cy="240" rx="86" ry="80" fill="#221A0E"/>
+  <ellipse cx="920" cy="240" rx="86" ry="80" fill="none" stroke="#6B542E" stroke-width="1.4"/>
+  <g filter="url(#b2)">
+    <circle cx="898" cy="212" r="10" fill="#3A2E18"/><circle cx="898" cy="212" r="4.5" fill="#F0B563"/>
+    <circle cx="944" cy="230" r="9" fill="#3A2E18"/><circle cx="944" cy="230" r="4" fill="#F0B563"/>
+    <circle cx="918" cy="270" r="9" fill="#3A2E18"/><circle cx="918" cy="270" r="4" fill="#F0B563"/>
+  </g>
+  <text x="920" y="352" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="15" fill="#E2CB9C" font-style="italic">Nico</text>
+
+  <!-- the LIVE FILAMENT: twin strands braiding, signals both ways -->
+  <path d="M 552 480 C 660 420, 760 340, 856 288" fill="none" stroke="#3FE0AC" stroke-width="1.6" opacity=".6" filter="url(#b2)"/>
+  <path d="M 556 490 C 672 436, 772 352, 862 298" fill="none" stroke="#F0B563" stroke-width="1.2" opacity=".5" filter="url(#b2)"/>
+  <circle r="4" fill="#7BF0CB" class="sig1" style="offset-path:path('M 552 480 C 660 420, 760 340, 856 288')"/>
+  <circle r="3.4" fill="#F0B563" class="sig2" style="offset-path:path('M 862 298 C 772 352, 672 436, 556 490')"/>
+  <g transform="rotate(-30 706 388)">
+    <text x="706" y="380" text-anchor="middle" font-size="10" fill="#6FA491" font-family="ui-monospace,Menlo,monospace">filament live · 3 threads woven today</text>
+  </g>
+
+  <!-- ══ a THINNING filament to a quiet biome (upper left) ══ -->
+  <circle cx="170" cy="270" r="80" fill="url(#halo-dim)" filter="url(#b1)" opacity=".7"/>
+  <ellipse cx="170" cy="270" rx="46" ry="42" fill="#0C1712" stroke="#264A3E" stroke-width="1"/>
+  <circle cx="158" cy="258" r="3" fill="#4E8A76" opacity=".7"/><circle cx="184" cy="276" r="2.6" fill="#4E8A76" opacity=".6"/>
+  <text x="170" y="342" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="13" fill="#87A99C" font-style="italic">a friend, signal low</text>
+  <path d="M 214 310 C 300 400, 372 462, 408 494" fill="none" stroke="#1F3A31" stroke-width="1.4" stroke-dasharray="4 7" opacity=".8"/>
+  <g class="pulse" style="animation-delay:.5s">
+    <circle cx="312" cy="404" r="12" fill="none" stroke="#3FE0AC" stroke-width="1.2"/>
+    <circle cx="312" cy="404" r="3.5" fill="#3FE0AC"/>
+  </g>
+  <text x="312" y="438" text-anchor="middle" font-size="9" fill="#48705F" font-family="ui-monospace,Menlo,monospace">touch: re-open the channel</text>
+
+  <!-- distant biomes at depth -->
+  <circle cx="1130" cy="560" r="40" fill="url(#halo-dim)" opacity=".5"/>
+  <ellipse cx="1130" cy="560" rx="20" ry="18" fill="#0B1510" stroke="#1E3D33" stroke-width=".8"/>
+  <text x="1130" y="608" text-anchor="middle" font-size="9" fill="#3E6455">unmet · no filament</text>
+  <circle cx="760" cy="640" r="24" fill="url(#halo-dim)" opacity=".35"/>
+
+  <!-- zoom continuum whisper -->
+  <text x="1204" y="748" text-anchor="end" font-size="9" fill="#33564B" font-family="ui-monospace,Menlo,monospace">pinch: cell ⟷ nexus ⟷ biosphere</text>
+</svg>
+</div>
+
+<p class="cap"><b>The Ecological Nexus: the federation as living tissue.</b> Each being is a biome-cell — organelle-groves glowing, nucleus veiled. A live negotiation is a braided filament carrying signals both ways; sustained exchange thickens it into permanent tissue, and quiet lets it thin — visibly, so one touch re-opens the channel instead of a guilt-list. The unmet ecology drifts as spore-light: potential, not absence. One pinch runs the whole navigation: cell ⟷ nexus ⟷ biosphere.</p>

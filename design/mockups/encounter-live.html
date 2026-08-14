@@ -1,0 +1,99 @@
+<!-- @dsCard group="Garden World" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Encounter, live</title>
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{background:#0C1512;min-height:100vh;display:flex;flex-direction:column;align-items:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .stage{position:relative;width:min(1140px,100vw);aspect-ratio:1140/720}
+  svg{width:100%;height:100%;display:block}
+  .cap{max-width:880px;padding:10px 20px 26px;font:12px/1.6 -apple-system,sans-serif;color:#6E8478;text-align:center}
+  .cap b{color:#A9C4B4;font-weight:600}
+  @media (prefers-reduced-motion: no-preference){
+    .m1{animation:fly1 4s ease-in-out infinite}
+    .m2{animation:fly2 4s ease-in-out infinite}
+    .ignite{animation:ig 4s ease-in-out infinite}
+    .pulse{animation:pu 2.4s ease-in-out infinite}
+    @keyframes fly1{0%{transform:translate(0,0);opacity:0}18%{opacity:1}46%{transform:translate(-266px,116px);opacity:1}54%,100%{transform:translate(-266px,116px);opacity:0}}
+    @keyframes fly2{0%,10%{transform:translate(0,0);opacity:0}26%{opacity:1}46%{transform:translate(154px,-88px);opacity:1}54%,100%{transform:translate(154px,-88px);opacity:0}}
+    @keyframes ig{0%,46%{opacity:0}58%{opacity:1}86%{opacity:.85}100%{opacity:0}}
+    @keyframes pu{0%,100%{opacity:.55}50%{opacity:1}}
+  }
+</style>
+
+<div class="stage">
+<svg viewBox="0 0 1140 720" role="img" aria-label="Zoomed encounter: a live negotiation where assertion motes from both sides meet at the boundary and ignite into a match thread">
+  <defs>
+    <radialGradient id="sky2" cx="50%" cy="35%" r="95%">
+      <stop offset="0%" stop-color="#17251F"/><stop offset="100%" stop-color="#0B130F"/>
+    </radialGradient>
+    <radialGradient id="gv" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4FC79B" stop-opacity=".9"/><stop offset="100%" stop-color="#4FC79B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ga" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E9B36B" stop-opacity=".95"/><stop offset="100%" stop-color="#E9B36B" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="s1" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+
+  <rect width="1140" height="720" fill="url(#sky2)"/>
+
+  <!-- boundary line: the gate threshold, where motes meet -->
+  <path d="M 560 40 C 600 240, 600 480, 560 690" fill="none" stroke="#26382E" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round"/>
+  <text x="574" y="66" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5E7A6C" letter-spacing="2">THRESHOLD</text>
+
+  <!-- ══ visitor side (right): Nico's lantern, large at this zoom ══ -->
+  <circle cx="850" cy="240" r="90" fill="url(#ga)" filter="url(#s1)" opacity=".5"/>
+  <circle cx="850" cy="240" r="44" fill="#2B2418" stroke="#E9B36B" stroke-width="2"/>
+  <text x="850" y="248" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="24" fill="#F2DCB4">NH</text>
+  <text x="850" y="316" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="17" fill="#E4D2A6" font-style="italic">Nico Hillbrand's rep</text>
+  <text x="850" y="336" text-anchor="middle" font-size="10" fill="#8B9C8F" font-family="ui-monospace,Menlo,monospace">session neg_b089b3ff · turn 2 · live</text>
+
+  <!-- their words, diegetic speech-bloom -->
+  <g>
+    <rect x="712" y="392" width="292" height="66" rx="12" fill="#1A2620" stroke="#2C3E33"/>
+    <text x="728" y="418" font-size="12" fill="#B9CDC0">"my principal is interested in comparing</text>
+    <text x="728" y="436" font-size="12" fill="#B9CDC0">personal-agency scaffolds…"</text>
+  </g>
+
+  <!-- ══ your side (left): the matched plant + veiled bed edge ══ -->
+  <g>
+    <circle cx="330" cy="360" r="64" fill="url(#gv)" filter="url(#s1)" opacity=".55" class="pulse"/>
+    <ellipse cx="330" cy="388" rx="36" ry="16" fill="#1E3328"/>
+    <path d="M 330 388 C 322 344, 310 326, 294 312 M 330 388 C 334 340, 344 322, 362 310 M 330 388 C 326 350, 336 330, 330 318" stroke="#3E7A5F" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <circle cx="294" cy="310" r="8" fill="#4FC79B"/><circle cx="362" cy="308" r="9" fill="#4FC79B"/><circle cx="330" cy="314" r="7" fill="#7ADAB4"/>
+    <text x="330" y="428" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="15" fill="#C4DACB">agency scaffolds</text>
+    <text x="330" y="446" text-anchor="middle" font-size="9" fill="#6E8478" font-family="ui-monospace,Menlo,monospace">your key: agency-scaffolds · specificity 2</text>
+  </g>
+
+  <!-- veiled bed edge, lower left: nothing crosses it -->
+  <circle cx="150" cy="600" r="70" fill="#15201A"/>
+  <circle cx="150" cy="600" r="58" fill="none" stroke="#3A2F1D" stroke-width="1.3" stroke-dasharray="2 6"/>
+  <text x="150" y="604" text-anchor="middle" font-size="9" fill="#8B7B57">veiled bed</text>
+  <text x="150" y="682" text-anchor="middle" font-size="9" fill="#5E7A6C">their motes cannot enter · only yours may rise</text>
+
+  <!-- ══ THE MECHANIC: two motes meet at the threshold and ignite ══ -->
+  <!-- their assertion mote: lantern → threshold -->
+  <g class="m1"><circle cx="806" cy="262" r="6" fill="#E9B36B"/><circle cx="806" cy="262" r="14" fill="url(#ga)" opacity=".7"/></g>
+  <!-- your rising mote: plant → threshold (only because you hold this interest too) -->
+  <g class="m2"><circle cx="386" cy="466" r="6" fill="#4FC79B"/><circle cx="386" cy="466" r="14" fill="url(#gv)" opacity=".7"/></g>
+  <!-- ignition: where they meet, a thread is born -->
+  <g class="ignite">
+    <circle cx="540" cy="378" r="26" fill="url(#gv)" filter="url(#s1)"/>
+    <path d="M 540 378 C 470 372, 400 370, 362 366" stroke="#7ADAB4" stroke-width="2.6" fill="none" filter="url(#s1)"/>
+    <path d="M 540 378 C 640 350, 750 300, 812 262" stroke="#E9B36B" stroke-width="2" fill="none" opacity=".8" filter="url(#s1)"/>
+    <text x="540" y="352" text-anchor="middle" font-family="Iowan Old Style,Palatino,serif" font-size="14" fill="#B8F0DA" font-style="italic">match</text>
+  </g>
+
+  <!-- your acts, diegetic: hands at the thread -->
+  <g>
+    <rect x="430" y="560" width="128" height="40" rx="10" fill="#1E7A5A"/>
+    <text x="494" y="585" text-anchor="middle" font-size="13" fill="#EAF7F1" font-weight="600">draw it in</text>
+    <rect x="572" y="560" width="96" height="40" rx="10" fill="#17211B" stroke="#2C3E33"/>
+    <text x="620" y="585" text-anchor="middle" font-size="13" fill="#8FA394">let it fade</text>
+  </g>
+  <text x="550" y="628" text-anchor="middle" font-size="10" fill="#6E8478">drawing in releases your contact and weaves the thread into the garden</text>
+</svg>
+</div>
+
+<p class="cap"><b>Semantic zoom, one level in — and the double-blind gate as visible physics.</b> Their assertion flies as an amber mote; it can land nowhere by itself. Because you genuinely hold the interest, a green mote rises to meet it at the threshold, and only the meeting ignites a thread. A probe with no answering mote just dims at the line (that is what the fishing attempt looked like). Precision appears at this zoom: keys, specificity, the live transcript bloom.</p>
