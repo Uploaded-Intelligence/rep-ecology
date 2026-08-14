@@ -1,0 +1,100 @@
+<!-- @dsCard group="Registry" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Registry as living map</title>
+<style>
+  :root{
+    --ground:#101613; --surface:#17201B; --line:#26332B;
+    --ink:#E9EFE7; --soft:#AFBFB2; --muted:#7C8F81;
+    --vir:#4FC79B; --vir-deep:#1E7A5A; --vir-dim:#2A4A3C;
+    --amber:#D9A054;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--ground);color:var(--ink);font:14px/1.5 var(--sans);display:flex;flex-direction:column;align-items:center;padding:22px;min-height:100vh}
+  h1{font:600 19px var(--serif);margin-bottom:2px}
+  .sub{font:12px;color:var(--muted);margin-bottom:14px}
+  .legend{display:flex;gap:16px;font:10px var(--mono);color:var(--muted);margin-bottom:10px}
+  .legend .pub::before{content:"●";color:var(--vir);margin-right:5px}
+  .legend .hid::before{content:"●";color:var(--amber);margin-right:5px}
+  .legend .drag{color:var(--soft)}
+  svg{max-width:100%;height:auto}
+  .hint{font:11px;color:var(--muted);margin-top:12px;max-width:560px;text-align:center}
+</style>
+
+<h1>Your registry, as a garden</h1>
+<div class="sub">interests grow in groves · rings are visibility · drag between rings to change who can match on it</div>
+<div class="legend"><span class="pub">public ring, matchable by anyone's agent</span><span class="hid">hidden core, mutual-assertion only</span><span class="drag">✥ drag to move</span></div>
+
+<svg width="760" height="520" viewBox="0 0 760 520" role="img" aria-label="Registry map: concentric visibility rings with interest nodes grouped in facet groves">
+  <!-- rings -->
+  <circle cx="380" cy="260" r="238" fill="none" stroke="#26332B" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <circle cx="380" cy="260" r="150" fill="none" stroke="#26332B" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <circle cx="380" cy="260" r="72" fill="#17201B" stroke="#3A2F1D" stroke-width="1.5"/>
+  <text x="380" y="36" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#7C8F81" letter-spacing="2">PUBLIC RING</text>
+  <text x="380" y="252" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#D9A054" letter-spacing="2">HIDDEN CORE</text>
+  <text x="380" y="268" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" fill="#7C8F81">mutual-assertion only</text>
+
+  <!-- grove: making / tools (upper left, public) -->
+  <text x="200" y="96" font-family="Iowan Old Style,Palatino,serif" font-size="13" fill="#AFBFB2" font-style="italic">making ∙ tools</text>
+  <g>
+    <circle cx="216" cy="140" r="34" fill="#1D2822" stroke="#2A4A3C"/>
+    <text x="216" y="137" text-anchor="middle" font-size="10" fill="#E9EFE7">rep-ecology</text>
+    <text x="216" y="150" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#4FC79B">interop</text>
+  </g>
+  <g>
+    <circle cx="300" cy="112" r="30" fill="#1D2822" stroke="#2A4A3C"/>
+    <text x="300" y="110" text-anchor="middle" font-size="10" fill="#E9EFE7">tool-trade</text>
+    <text x="300" y="122" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#4FC79B">matched ·1</text>
+  </g>
+
+  <!-- grove: thinking together (right, public) -->
+  <text x="540" y="120" font-family="Iowan Old Style,Palatino,serif" font-size="13" fill="#AFBFB2" font-style="italic">thinking together</text>
+  <g>
+    <circle cx="560" cy="168" r="38" fill="#1D2822" stroke="#4FC79B" stroke-width="1.5"/>
+    <text x="560" y="163" text-anchor="middle" font-size="10" fill="#E9EFE7">agency-scaffolds</text>
+    <text x="560" y="177" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#4FC79B">matched today ✦</text>
+  </g>
+  <g>
+    <circle cx="620" cy="252" r="32" fill="#1D2822" stroke="#2A4A3C"/>
+    <text x="620" y="249" text-anchor="middle" font-size="10" fill="#E9EFE7">strategy-doc</text>
+    <text x="620" y="262" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#4FC79B">matched ·1</text>
+  </g>
+
+  <!-- grove: place & scene (lower, public middle ring) -->
+  <text x="238" y="392" font-family="Iowan Old Style,Palatino,serif" font-size="13" fill="#AFBFB2" font-style="italic">place ∙ scene</text>
+  <g>
+    <circle cx="282" cy="352" r="33" fill="#1D2822" stroke="#2A4A3C"/>
+    <text x="282" y="349" text-anchor="middle" font-size="10" fill="#E9EFE7">community</text>
+    <text x="282" y="362" text-anchor="middle" font-size="10" fill="#E9EFE7">mapping</text>
+  </g>
+  <g>
+    <circle cx="452" cy="380" r="30" fill="#1D2822" stroke="#2A4A3C"/>
+    <text x="452" y="377" text-anchor="middle" font-size="10" fill="#E9EFE7">london</text>
+    <text x="452" y="390" text-anchor="middle" font-size="10" fill="#E9EFE7">growing</text>
+  </g>
+
+  <!-- hidden core seeds -->
+  <circle cx="362" cy="292" r="9" fill="#3A2F1D" stroke="#D9A054"/>
+  <circle cx="398" cy="288" r="9" fill="#3A2F1D" stroke="#D9A054"/>
+  <text x="380" y="316" text-anchor="middle" font-size="9" fill="#7C8F81">2 hidden seeds · labels visible only to you</text>
+
+  <!-- a node mid-drag -->
+  <g opacity="0.92">
+    <circle cx="472" cy="212" r="28" fill="#1D2822" stroke="#D9A054" stroke-dasharray="4 3" stroke-width="1.5"/>
+    <text x="472" y="209" text-anchor="middle" font-size="10" fill="#E9EFE7">vr-worlds</text>
+    <text x="472" y="222" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#D9A054">✥ moving in…</text>
+  </g>
+  <path d="M 472 240 Q 452 262 414 282" fill="none" stroke="#D9A054" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- planting affordance -->
+  <g>
+    <circle cx="150" cy="256" r="24" fill="none" stroke="#26332B" stroke-dasharray="4 4"/>
+    <text x="150" y="260" text-anchor="middle" font-size="15" fill="#7C8F81">+</text>
+  </g>
+  <text x="150" y="298" text-anchor="middle" font-size="9" fill="#7C8F81">plant: name it to your rep</text>
+</svg>
+
+<p class="hint">Nodes glow when matched. Naming a new interest happens conversationally (tap +, speak or type); moving one between visibility rings is a drag. Nothing here requires upkeep: the garden grows from interviews, exhaust, and graded encounters.</p>

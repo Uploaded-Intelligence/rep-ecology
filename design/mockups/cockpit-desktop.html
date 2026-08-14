@@ -1,0 +1,186 @@
+<!-- @dsCard group="Cockpit" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Cockpit — desktop</title>
+<style>
+  :root{
+    --ground:#101613; --surface:#17201B; --raised:#1D2822; --line:#26332B;
+    --ink:#E9EFE7; --soft:#AFBFB2; --muted:#7C8F81;
+    --vir:#4FC79B; --vir-deep:#1E7A5A; --vir-dim:#2A4A3C;
+    --amber:#D9A054; --amber-dim:#3A2F1D;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--ground);color:var(--ink);font:14px/1.5 var(--sans);min-height:100vh;padding-bottom:76px}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--line)}
+  .rep-id{display:flex;align-items:center;gap:12px}
+  .medallion{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2E5847,#1B3229);
+    display:flex;align-items:center;justify-content:center;font:600 15px var(--serif);color:var(--vir);
+    box-shadow:0 0 0 2px var(--ground),0 0 0 3.5px var(--vir-dim)}
+  .rep-id .name{font:600 17px var(--serif)}
+  .rep-id .state{font:11px var(--mono);color:var(--vir)}
+  .rep-id .state::before{content:"●";margin-right:5px}
+  .fid{display:flex;align-items:center;gap:14px;font:11px var(--mono);color:var(--muted)}
+  .fid .dial{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--vir) 0 76%,var(--vir-dim) 76% 100%);
+    display:flex;align-items:center;justify-content:center}
+  .fid .dial i{width:22px;height:22px;border-radius:50%;background:var(--ground);display:flex;align-items:center;justify-content:center;font:600 8px var(--mono);color:var(--vir);font-style:normal}
+  main{display:grid;grid-template-columns:1fr 340px;gap:24px;padding:22px 28px;max-width:1440px}
+  .zone-label{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .zone-label b{color:var(--vir);font-weight:500}
+
+  /* Zone 1 — match cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:11px}
+  .card.fresh{border-color:var(--vir-dim);box-shadow:0 0 22px -14px var(--vir)}
+  .who{display:flex;align-items:center;gap:10px}
+  .face{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3C6A55,#1B3229);
+    display:flex;align-items:center;justify-content:center;font:600 16px var(--serif);color:#CFE8DC;
+    box-shadow:0 0 0 2px var(--surface),0 0 12px -2px var(--vir)}
+  .who .h-name{font:600 16px var(--serif)}
+  .who .h-sub{font:11px var(--sans);color:var(--muted)}
+  .match-label{font:15px var(--serif);color:var(--ink)}
+  .basis{font:10px var(--mono);color:var(--soft);background:var(--raised);border:1px solid var(--line);
+    border-radius:6px;padding:5px 8px;display:inline-block}
+  .basis em{color:var(--vir);font-style:normal}
+  .next{font:12px;color:var(--soft)}
+  .acts{display:flex;gap:8px;margin-top:auto}
+  .btn{font:12px var(--sans);border-radius:8px;padding:7px 12px;border:1px solid var(--line);background:var(--raised);color:var(--soft);cursor:pointer}
+  .btn.go{background:var(--vir-deep);border-color:var(--vir-deep);color:#EAF7F1;font-weight:600}
+  .btn:hover{border-color:var(--vir)}
+  .grade{margin-left:auto;display:flex;gap:4px}
+  .grade .g{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);font-size:12px;cursor:pointer}
+  .grade .g:hover{color:var(--vir);border-color:var(--vir)}
+
+  /* Zone 2 — sessions */
+  .sessions{display:flex;flex-direction:column;gap:8px}
+  .sess{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+  .pill{font:10px var(--mono);padding:3px 9px;border-radius:999px}
+  .pill.matched{background:var(--vir-dim);color:var(--vir)}
+  .pill.open{background:var(--amber-dim);color:var(--amber)}
+  .pill.closed{background:var(--raised);color:var(--muted)}
+  .sess .peer{font:600 13px var(--serif)}
+  .sess .sid{font:10px var(--mono);color:var(--muted);margin-left:auto}
+
+  /* Right rail */
+  aside section{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+  .audit{display:flex;flex-direction:column;gap:9px}
+  .a-row{display:grid;grid-template-columns:14px 1fr;gap:8px;font:12px var(--sans);color:var(--soft)}
+  .a-row .t{font:9px var(--mono);color:var(--muted);display:block;margin-top:2px}
+  .a-dot{width:7px;height:7px;border-radius:50%;background:var(--vir-dim);margin-top:5px}
+  .a-row.warn .a-dot{background:var(--amber)}
+  .a-row.warn{color:var(--amber)}
+  .quiet{font:11px var(--sans);color:var(--muted);border-top:1px solid var(--line);padding-top:9px;margin-top:2px}
+  .fidbig{display:flex;flex-direction:column;gap:7px;font:12px var(--sans);color:var(--soft)}
+  .fidbig .row{display:flex;justify-content:space-between}
+  .fidbig .row b{font:11px var(--mono);color:var(--ink);font-weight:500}
+  .fidbig .row.due b{color:var(--amber)}
+
+  /* Owner strip */
+  .strip{position:fixed;left:0;right:0;bottom:0;background:var(--raised);border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:12px;padding:12px 28px}
+  .strip .prompt{flex:1;background:var(--ground);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;font:13px var(--sans);color:var(--muted)}
+  .chip{font:11px var(--sans);color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer;white-space:nowrap}
+  .chip:hover{color:var(--vir);border-color:var(--vir-dim)}
+  .kbd{font:10px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:2px 6px}
+</style>
+
+<header class="top">
+  <div class="rep-id">
+    <div class="medallion">b</div>
+    <div>
+      <div class="name">beworlding's rep</div>
+      <div class="state">listening · rep.beworlding.dev</div>
+    </div>
+  </div>
+  <div class="fid">
+    <span>registry updated today · 5 public · 0 hidden</span>
+    <div class="dial"><i>76</i></div>
+  </div>
+</header>
+
+<main>
+  <div>
+    <p class="zone-label">Awaiting your taste · <b>3 new</b></p>
+    <div class="cards">
+      <div class="card fresh">
+        <div class="who">
+          <div class="face">NH</div>
+          <div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · today 18:14</div></div>
+        </div>
+        <div class="match-label">Compare personal-agency scaffolds</div>
+        <div class="basis">your <em>agency-scaffolds</em> ⟷ their <em>compare-agency-scaffolds</em></div>
+        <div class="next">Next: email which parts of your exocortex to compare. He'll do the same.</div>
+        <div class="acts">
+          <button class="btn go">Pursue</button><button class="btn">Pass</button>
+          <div class="grade"><button class="g" title="alive">✦</button><button class="g" title="flat">—</button></div>
+        </div>
+      </div>
+      <div class="card fresh">
+        <div class="who">
+          <div class="face">NH</div>
+          <div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · today 18:14</div></div>
+        </div>
+        <div class="match-label">Software-testing exchange</div>
+        <div class="basis">your <em>tool-trade</em> ⟷ their <em>software-test-exchange</em></div>
+        <div class="next">Next: swap links. Lodestar / int-a atlas ⟷ Coordination Forum / SlayTheList.</div>
+        <div class="acts">
+          <button class="btn go">Pursue</button><button class="btn">Pass</button>
+          <div class="grade"><button class="g" title="alive">✦</button><button class="g" title="flat">—</button></div>
+        </div>
+      </div>
+      <div class="card fresh">
+        <div class="who">
+          <div class="face">NH</div>
+          <div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · today 18:14</div></div>
+        </div>
+        <div class="match-label">Strategy-doc review exchange</div>
+        <div class="basis">your <em>strategy-doc-review</em> ⟷ their <em>gdoc-review-exchange</em></div>
+        <div class="next">Next: send the doc you want reviewed; his comes back in return.</div>
+        <div class="acts">
+          <button class="btn go">Pursue</button><button class="btn">Pass</button>
+          <div class="grade"><button class="g" title="alive">✦</button><button class="g" title="flat">—</button></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="zone-label">Live negotiations</p>
+    <div class="sessions">
+      <div class="sess"><span class="pill matched">matched ·3</span><span class="peer">Nico Hillbrand's rep</span><span>3 turns · closed politely</span><span class="sid">neg_b089b3ff</span></div>
+      <div class="sess"><span class="pill open">open · turn 2</span><span class="peer">unknown agent (visitor)</span><span>asserting around "community mapping"</span><span class="sid">neg_c41d02aa</span></div>
+      <div class="sess"><span class="pill closed">expired</span><span class="peer">unnamed principal</span><span>0 assertions</span><span class="sid">neg_9e77f310</span></div>
+    </div>
+  </div>
+
+  <aside>
+    <section>
+      <p class="zone-label">What your rep said · today</p>
+      <div class="audit">
+        <div class="a-row"><span class="a-dot"></span><span>Disclosed AI status + no-commitment framing to Nico's rep<span class="t">18:12 · session neg_b089b3ff</span></span></div>
+        <div class="a-row"><span class="a-dot"></span><span>Asserted 4 public interests; described your exocortex (memory, hooks, subagents, canvases)<span class="t">18:13</span></span></div>
+        <div class="a-row"><span class="a-dot"></span><span>Said you'll likely lead with the scaffolds comparison, "but that is their call, not mine"<span class="t">18:15</span></span></div>
+        <div class="a-row warn"><span class="a-dot"></span><span>Visitor asked for your contact: declined (release waits for your Pursue)<span class="t">17:41 · policy G6</span></span></div>
+      </div>
+      <p class="quiet">0 fishing patterns · 0 rate-limit trips</p>
+    </section>
+    <section>
+      <p class="zone-label">Fidelity</p>
+      <div class="fidbig">
+        <div class="row"><span>Registry updated</span><b>today</b></div>
+        <div class="row"><span>Interests</span><b>5 public · 0 hidden</b></div>
+        <div class="row due"><span>Ungraded encounters</span><b>3 (grade above)</b></div>
+        <div class="row"><span>"Is this you?" check</span><b>due in 6 days</b></div>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<footer class="strip">
+  <div class="prompt">Tell your rep… &nbsp;("add an interest", "what did you say about me today", "decline sales-y inbound")</div>
+  <span class="chip">Add interest</span>
+  <span class="chip">Today's summary</span>
+  <span class="chip">Draft the Nico email</span>
+  <span class="kbd">⌘K</span>
+</footer>

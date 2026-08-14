@@ -1,0 +1,105 @@
+<!-- @dsCard group="Cockpit" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Cockpit mobile</title>
+<style>
+  :root{
+    --ground:#101613; --surface:#17201B; --raised:#1D2822; --line:#26332B;
+    --ink:#E9EFE7; --soft:#AFBFB2; --muted:#7C8F81;
+    --vir:#4FC79B; --vir-deep:#1E7A5A; --vir-dim:#2A4A3C;
+    --amber:#D9A054;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--ground);color:var(--ink);font:14px/1.5 var(--sans);max-width:390px;margin:0 auto;padding:0 0 84px;min-height:100vh}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .rep-id{display:flex;align-items:center;gap:10px}
+  .medallion{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2E5847,#1B3229);
+    display:flex;align-items:center;justify-content:center;font:600 14px var(--serif);color:var(--vir)}
+  .rep-id .name{font:600 15px var(--serif)}
+  .rep-id .state{font:10px var(--mono);color:var(--vir)}
+  .dial{width:28px;height:28px;border-radius:50%;background:conic-gradient(var(--vir) 0 76%,var(--vir-dim) 76% 100%);display:flex;align-items:center;justify-content:center}
+  .dial i{width:20px;height:20px;border-radius:50%;background:var(--ground);display:flex;align-items:center;justify-content:center;font:600 8px var(--mono);color:var(--vir);font-style:normal}
+  .zone-label{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 16px 10px}
+  .zone-label b{color:var(--vir);font-weight:500}
+  .rail{display:flex;gap:12px;overflow-x:auto;padding:0 16px 6px;scroll-snap-type:x mandatory}
+  .card{scroll-snap-align:start;flex:0 0 300px;background:var(--surface);border:1px solid var(--vir-dim);border-radius:14px;padding:15px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 22px -14px var(--vir)}
+  .who{display:flex;align-items:center;gap:10px}
+  .face{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3C6A55,#1B3229);
+    display:flex;align-items:center;justify-content:center;font:600 15px var(--serif);color:#CFE8DC;box-shadow:0 0 12px -2px var(--vir)}
+  .h-name{font:600 15px var(--serif)}
+  .h-sub{font:10px;color:var(--muted)}
+  .match-label{font:15px var(--serif)}
+  .basis{font:9px var(--mono);color:var(--soft);background:var(--raised);border:1px solid var(--line);border-radius:6px;padding:4px 7px;display:inline-block}
+  .basis em{color:var(--vir);font-style:normal}
+  .acts{display:flex;gap:8px;margin-top:2px}
+  .btn{font:12px;border-radius:8px;padding:8px 14px;border:1px solid var(--line);background:var(--raised);color:var(--soft)}
+  .btn.go{background:var(--vir-deep);border-color:var(--vir-deep);color:#EAF7F1;font-weight:600}
+  .grade{margin-left:auto;display:flex;gap:4px}
+  .g{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);font-size:13px}
+  .sess,.a-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:0 16px 8px;padding:11px 14px}
+  .sess{display:flex;align-items:center;gap:9px}
+  .pill{font:9px var(--mono);padding:3px 8px;border-radius:999px}
+  .pill.matched{background:var(--vir-dim);color:var(--vir)}
+  .pill.open{background:#3A2F1D;color:var(--amber)}
+  .peer{font:600 12px var(--serif)}
+  .sid{font:9px var(--mono);color:var(--muted);margin-left:auto}
+  .a-row{display:flex;gap:8px;font:12px;color:var(--soft);padding:4px 0}
+  .a-dot{flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:var(--vir-dim);margin-top:6px}
+  .a-row.warn{color:var(--amber)} .a-row.warn .a-dot{background:var(--amber)}
+  .strip{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:390px;background:var(--raised);border-top:1px solid var(--line);padding:10px 14px;display:flex;flex-direction:column;gap:8px}
+  .prompt{background:var(--ground);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:13px var(--sans);color:var(--muted)}
+  .chips{display:flex;gap:7px;overflow-x:auto}
+  .chip{font:11px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 11px;white-space:nowrap}
+</style>
+
+<header class="top">
+  <div class="rep-id">
+    <div class="medallion">b</div>
+    <div><div class="name">your rep</div><div class="state">● listening</div></div>
+  </div>
+  <div class="dial"><i>76</i></div>
+</header>
+
+<p class="zone-label">Awaiting your taste · <b>3 new</b> · swipe</p>
+<div class="rail">
+  <div class="card">
+    <div class="who"><div class="face">NH</div><div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · 18:14</div></div></div>
+    <div class="match-label">Compare personal-agency scaffolds</div>
+    <div class="basis">your <em>agency-scaffolds</em> ⟷ their <em>compare-agency-scaffolds</em></div>
+    <div class="acts"><button class="btn go">Pursue</button><button class="btn">Pass</button>
+      <div class="grade"><button class="g">✦</button><button class="g">—</button></div></div>
+  </div>
+  <div class="card">
+    <div class="who"><div class="face">NH</div><div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · 18:14</div></div></div>
+    <div class="match-label">Software-testing exchange</div>
+    <div class="basis">your <em>tool-trade</em> ⟷ their <em>software-test-exchange</em></div>
+    <div class="acts"><button class="btn go">Pursue</button><button class="btn">Pass</button>
+      <div class="grade"><button class="g">✦</button><button class="g">—</button></div></div>
+  </div>
+  <div class="card">
+    <div class="who"><div class="face">NH</div><div><div class="h-name">Nico Hillbrand</div><div class="h-sub">via his rep · 18:14</div></div></div>
+    <div class="match-label">Strategy-doc review exchange</div>
+    <div class="basis">your <em>strategy-doc-review</em> ⟷ their <em>gdoc-review-exchange</em></div>
+    <div class="acts"><button class="btn go">Pursue</button><button class="btn">Pass</button>
+      <div class="grade"><button class="g">✦</button><button class="g">—</button></div></div>
+  </div>
+</div>
+
+<p class="zone-label">Live negotiations</p>
+<div class="sess"><span class="pill matched">matched ·3</span><span class="peer">Nico Hillbrand's rep</span><span class="sid">neg_b089b3ff</span></div>
+<div class="sess"><span class="pill open">open</span><span class="peer">unknown agent</span><span class="sid">neg_c41d02aa</span></div>
+
+<p class="zone-label">What your rep said</p>
+<div class="a-card">
+  <div class="a-row"><span class="a-dot"></span><span>Disclosed AI status to Nico's rep, no-commitment framing</span></div>
+  <div class="a-row"><span class="a-dot"></span><span>Asserted 4 public interests; described your exocortex</span></div>
+  <div class="a-row warn"><span class="a-dot"></span><span>Visitor asked for your contact: declined, waits for your Pursue</span></div>
+</div>
+
+<footer class="strip">
+  <div class="prompt">Tell your rep…</div>
+  <div class="chips"><span class="chip">Add interest</span><span class="chip">Today's summary</span><span class="chip">Draft the Nico email</span></div>
+</footer>

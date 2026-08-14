@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "interests": [
+    {
+      "key": "rep-ecology-interop",
+      "label": "AI-representative ecosystems and interop",
+      "description": "Building AI representatives as 5E-cognition extensions of people's values and cares; cross-implementation negotiation protocols (MCP, A2A); collaborative-equilibria design. Currently building a wire-compatible rep and running cross-system dyads.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "making-tools",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": null
+    },
+    {
+      "key": "agency-scaffolds",
+      "label": "Compare personal-agency scaffolds",
+      "description": "Comparing exocortex setups: persistent memory systems, verification-loop hooks, subagent ecologies, task and routine systems, spatial-visual canvases for concepts. Deep Claude-Code-based stack to trade notes on.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "thinking-together",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": "2026-08-14"
+    },
+    {
+      "key": "tool-trade",
+      "label": "Software-testing exchange",
+      "description": "Reciprocal tool testing: live tools to trade include Lodestar (map-first London day-planning) and int/a atlas (live community world-map). Happy to try a counterpart's tools and swap structured feedback.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "making-tools",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": "2026-08-14"
+    },
+    {
+      "key": "strategy-doc-review",
+      "label": "Strategy-doc review exchange",
+      "description": "Reciprocal review of life-strategy and worldbuilding documents; systems-thinking feedback welcome and offered.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "thinking-together",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": "2026-08-14"
+    },
+    {
+      "key": "community-mapping",
+      "label": "Community and scene mapping",
+      "description": "Living maps of communities, scenes, and places: event discovery, energy-aware planning, collective world-maps. London-focused growing; tooling for communities to see themselves.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "place-scene",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "interests": [
+    {
+      "key": "field-recording-walks",
+      "label": "Field-recording walks",
+      "description": "Joint field-recording walks around urban wetlands; trading gear knowledge and edited soundscapes afterwards.",
+      "visibility": "public",
+      "specificity": 2,
+      "facet": "sound-place",
+      "status": "growing",
+      "planted": "2026-08-14",
+      "lastMatched": null
+    },
+    {
+      "key": "zine-print-swap",
+      "label": "Zine print-run swap",
+      "description": "Trading riso print-run capacity for editorial feedback on each other's zines.",
+      "visibility": "public",
+      "specificity": 3,
+      "facet": "making",
+      "status": "seed",
+      "planted": "2026-08-14",
+      "lastMatched": null
+    }
+  ]
+}

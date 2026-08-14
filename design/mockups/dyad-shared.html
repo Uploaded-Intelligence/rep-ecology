@@ -1,0 +1,76 @@
+<!-- @dsCard group="Dyad" -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Shared match record</title>
+<style>
+  :root{
+    --ground:#101613; --surface:#17201B; --raised:#1D2822; --line:#26332B;
+    --ink:#E9EFE7; --soft:#AFBFB2; --muted:#7C8F81;
+    --vir:#4FC79B; --vir-deep:#1E7A5A; --vir-dim:#2A4A3C;
+    --amber:#D9A054;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--ground);color:var(--ink);font:14px/1.55 var(--sans);display:flex;justify-content:center;padding:30px 18px}
+  .page{max-width:640px;width:100%}
+  .sym{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--vir);text-align:center;margin-bottom:14px}
+  .pair{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
+  .face{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font:600 20px var(--serif);color:#CFE8DC;background:radial-gradient(circle at 35% 30%,#3C6A55,#1B3229);
+    box-shadow:0 0 16px -3px var(--vir)}
+  .tie{font:20px;color:var(--vir)}
+  .names{text-align:center;font:600 19px var(--serif);margin-bottom:2px}
+  .when{text-align:center;font:11px var(--mono);color:var(--muted);margin-bottom:22px}
+  .matches{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+  .m{background:var(--surface);border:1px solid var(--vir-dim);border-radius:12px;padding:14px 16px}
+  .m .lbl{font:15px var(--serif);margin-bottom:5px}
+  .m .basis{font:10px var(--mono);color:var(--soft)}
+  .m .basis em{color:var(--vir);font-style:normal}
+  .m .state{float:right;font:10px var(--mono);color:var(--vir)}
+  .summary{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:15px 17px;font:13px var(--sans);color:var(--soft);margin-bottom:22px}
+  .summary .h{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .bridge{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+  .bridge .h{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+  .b-row{display:flex;align-items:center;gap:10px;font:13px;color:var(--soft);padding:5px 0}
+  .b-row .st{margin-left:auto;font:10px var(--mono)}
+  .b-row .st.done{color:var(--vir)}
+  .b-row .st.wait{color:var(--amber)}
+  .cta{display:inline-block;background:var(--vir-deep);color:#EAF7F1;font:600 13px var(--sans);border-radius:9px;padding:9px 16px;margin-top:10px;text-decoration:none}
+  .foot{text-align:center;font:10px var(--mono);color:var(--muted);margin-top:20px}
+</style>
+
+<div class="page">
+  <p class="sym">Symmetric record · both of you see exactly this page</p>
+  <div class="pair">
+    <div class="face">b</div><span class="tie">⟷</span><div class="face">NH</div>
+  </div>
+  <p class="names">beworlding ⟷ Nico Hillbrand</p>
+  <p class="when">session neg_b089b3ff · 2026-08-14 18:12–18:16 BST · 3 turns each side</p>
+
+  <div class="matches">
+    <div class="m"><span class="state">confirmed</span><div class="lbl">Compare personal-agency scaffolds</div>
+      <div class="basis">beworlding asserted <em>agency-scaffolds</em> · Nico's registry held <em>compare-agency-scaffolds</em></div></div>
+    <div class="m"><span class="state">confirmed</span><div class="lbl">Software-testing exchange</div>
+      <div class="basis">beworlding asserted <em>tool-trade</em> · Nico's registry held <em>software-test-exchange</em></div></div>
+    <div class="m"><span class="state">confirmed</span><div class="lbl">Strategy-doc review exchange</div>
+      <div class="basis">beworlding asserted <em>strategy-doc-review</em> · Nico's registry held <em>gdoc-review-exchange</em></div></div>
+  </div>
+
+  <div class="summary">
+    <div class="h">What both reps agreed happened</div>
+    Three mutual interests confirmed. beworlding will likely lead with the scaffolds comparison; both principals decide their own next steps. Nothing outside these matches was revealed by either side.
+  </div>
+
+  <div class="bridge">
+    <div class="h">From match to meeting</div>
+    <div class="b-row"><span>beworlding: pursue?</span><span class="st wait">waiting</span></div>
+    <div class="b-row"><span>Nico: pursue?</span><span class="st done">yes · today</span></div>
+    <div class="b-row"><span>Contact release (on mutual yes)</span><span class="st wait">held</span></div>
+    <div class="b-row"><span>Scheduling link (on mutual yes)</span><span class="st wait">held</span></div>
+    <a class="cta" href="#">Pursue: release my contact ⟶</a>
+  </div>
+
+  <p class="foot">negotiated by AI representatives · disclosed per EU AI Act art. 50 · full transcript available to each principal for their own side</p>
+</div>
